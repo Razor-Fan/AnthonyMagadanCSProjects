@@ -10,12 +10,12 @@ html, body, canvas {
 html, body, canvas {
     width: 100%;
     height: 100%;
-    overflow: hidden; /* for no scroll bar */
 }
 
 body {
     background-color: black;
-
+    overflow: hidden;
 }
+
 
 
