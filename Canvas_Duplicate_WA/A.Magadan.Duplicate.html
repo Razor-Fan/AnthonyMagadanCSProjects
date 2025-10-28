@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Duplicated Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device_width, initial_scale=1" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* A subtle gradient for the background */
+        .gradient-bg {
+            background-color: #111827;
+            background-image: radial-gradient(at 47% 33%, hsl(151, 58%, 84%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <h1>Web Animation Duplicate</h1>
+        <p>Welcome, See if you can REPLICATE?</p>
+    </header>
+
+    <div id="left">
+        <div class="container" id="code">
+        <h1>Code Editor</h1>
+        </div>
+
+        <div class="container" style="background-color: rgba(2, 1, 30, 0.4);" id="date">
+            <h1>Date</h1>
+            <p><img src="images/location-icon.png" /><span style="font-weight: bold;">Location:</span> My Room</p>
+            <p><img src="images/clock-icon.png" /><span style="font-weight: bold;">October:</span> 27, 2025</p>
+        </div>
+
+        <div class="container" id="animate">
+            <h1>Animate</h1>
+        </div>
+    </div>
+
+    <div id="right">
+        <div class="container" style="background-color: rgba(2, 1, 30, 0.4);" id="links">
+            <h1>Animated Links</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <div class="flex items-center bg-gray-800 p-4 rounded-lg transition-all duration-300 hover:bg-indigo-500/20 hover:scale-105">
+                            <div class="flex-shrink-0 bg-indigo-500 text-white rounded-md h-12 w-12 flex flex-col items-center justify-center mr-4">
+                                <span class="text-xs font-semibold">Link</span>
+                                <span class="text-xl font-bold">1</span>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="text-lg font-medium text-gray-100">Wikipedia</p>
+                                <p class="text-sm text-gray-400"><a href="https://en.wikipedia.org/wiki/Playing_card">Visit Wikipedia!</a></p>
+                            </div>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="flex items-center bg-gray-800 p-4 rounded-lg transition-all duration-300 hover:bg-indigo-500/20 hover:scale-105">
+                            <div class="flex-shrink-0 bg-indigo-500 text-white rounded-md h-12 w-12 flex flex-col items-center justify-center mr-4">
+                                <span class="text-xs font-semibold">Link</span>
+                                <span class="text-xl font-bold">2</span>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="text-lg font-medium text-gray-100">Google</p>
+                                <p class="text-sm text-gray-400"><a href="https://www.google.com/search?q=askew">Visit Google!</a></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container" style="background-color: rgba(2, 1, 30, 0.4);" id="canvas">
+             <h1>Code in Motion</h1>
+            <canvas id="myCanvas"></canvas>
+            
+            <script src="scripts/script.js" defer></script>
+        </div>
+    </div>
+</body>
+</html>
