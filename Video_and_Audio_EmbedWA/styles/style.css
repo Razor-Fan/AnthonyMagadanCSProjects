@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #043563;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div {
+    flex: 1 1 300px;
+    padding: 0 5px;
+}
+
+video {
+    width: 100%;
+}
+
+audio {
+    width: 100%;
+}
