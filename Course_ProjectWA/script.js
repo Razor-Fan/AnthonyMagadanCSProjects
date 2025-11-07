@@ -9,48 +9,58 @@ window.onload = function() {
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    let particle = {
-        x: canvasWidth / 2,
-        y: canvasHeight / 2,
-        radius: 50,
-        dx: 2,
-        dy: 1,
-        color: '#1DEA3C'
-    };
+    let particles = [];
+
+    for (let i = 0; i < 100; i++) {
+        particles.push({
+            x: Math.random() * ((canvasWidth - 50) - 50) + 50, // x value
+            y: Math.random() * ((canvasHeight - 50) - 50) + 50, // y value
+            radius: (Math.random() * (50 - 10)) + 10, // radius min 10 max 50
+            dx: (Math.random() - 0.5) * 20, // dx
+            dy: (Math.random() - 0.5) * 20, // dy
+            color: `hsl(${Math.random() * 360}, 70%, 50%)`
+    });
+    }
 
     function draw() {
         // Cleans Canvas
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-        // Starts Drawing
-        ctx.beginPath();
+        particles.forEach(p => {
+            // Starts Drawing
+            ctx.beginPath();
 
-        // Defines Circle
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            // Defines Circle
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
 
-        // Defines Color
-        ctx.fillStyle = particle.color;
+            // Defines Color
+            ctx.fillStyle = p.color;
 
-        // Fill Circle
-        ctx.fill();
+            // Fill Circle
+            ctx.fill();
 
-        // Stops Drawing
-        ctx.closePath();
+            // Stops Drawing
+            ctx.closePath();
+        });
+
+        
     };
 
     function update() {
-        // Applies New Coordinates
-        particle.x += particle.dx;
-        particle.y += particle.dy;
+        particles.forEach(p => {
+            // Applies New Coordinates
+            p.x += p.dx;
+            p.y += p.dy;
 
-        // Check for edge
-        if (particle.x + particle.radius > canvasWidth || particle.x - particle.radius < 0) {
-            particle.dx *= -1;
-        }
+            // Check for edge
+            if (p.x + p.radius > canvasWidth || p.x - p.radius < 0) {
+                p.dx *= -1;
+            }
 
-        if (particle.y + particle.radius > canvasHeight || particle.y - particle.radius < 0) {
-            particle.dy *= -1;
-        }
+            if (p.y + p.radius > canvasHeight || p.y - p.radius < 0) {
+                p.dy *= -1;
+            }
+        });
     };
 
     function animate() {
