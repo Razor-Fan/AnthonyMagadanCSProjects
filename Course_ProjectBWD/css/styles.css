@@ -11,6 +11,7 @@ body {
 	display: flex;
 	background-color: #ffd6ea;
 	flex-wrap: wrap;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 header {
