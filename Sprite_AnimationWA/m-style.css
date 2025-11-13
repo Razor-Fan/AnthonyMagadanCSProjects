@@ -1,0 +1,59 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(paper_background.png);
+}
+
+h1 {
+  text-align: center;
+  padding: 8px 0;
+  font-size: 2.5em;
+  font-family: 'Felipa', sans-serif;
+}
+
+.description-box {
+  padding: 16px;
+}
+
+#container {
+  width: 350px;
+  box-shadow:5px 5px 5px black;
+  border:1px solid black;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+#controls{
+  font-family: 'Bangers', cursive;
+  font-size:32px;
+  margin:10px;
+}
+#controls > p{
+  font-size: 48px;
+}
+#canvas1{
+  box-shadow:inset 5px 5px 5px black;
+  border:1px solid black;
+}
+
+
+#mandrake{
+  display:none;
+}
+
+@media screen and (min-width: 451px) {
+  #container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  min-width: 350px;
+  width: 33%;
+  }
+}
