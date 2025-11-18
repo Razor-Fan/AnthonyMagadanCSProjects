@@ -131,7 +131,6 @@ button#glow:hover {
 #text h2 {
 	color: ghostwhite;
 	position: relative;
-	top: 50px;
 	animation: fadeIn 3s linear;
 }
 
@@ -141,4 +140,5 @@ button#glow:hover {
 	height: 1000px;
 	background-image: url(Rabbit_spriteSheet.jpg);
 	animation:  frameAnimate 0.7s steps(2, jump-none) infinite;
+
 }
