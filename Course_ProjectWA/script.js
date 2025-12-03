@@ -9,6 +9,14 @@ window.onload = function() {
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
+    // Get cursor position
+    let coords = {};
+
+    canvas.addEventListener("mousemove", function(e) {
+        coords.x = e.offsetX;
+        coords.y = e.offsetY
+    });
+
     let particles = [];
 
     for (let i = 0; i < 100; i++) {
@@ -16,12 +24,16 @@ window.onload = function() {
             x: Math.random() * ((canvasWidth - 50) - 50) + 50, // x value
             y: Math.random() * ((canvasHeight - 50) - 50) + 50, // y value
             radius: (Math.random() * (50 - 10)) + 10, // radius min 10 max 50
-            dx: (Math.random() - 0.5) * 20, // dx
-            dy: (Math.random() - 0.5) * 20, // dy
+            dx: (Math.random() - 0.5) * 10, // dx
+            dy: (Math.random() - 0.5) * 10, // dy
             color: `hsl(${Math.random() * 360}, 70%, 50%)`
     });
     }
 
+    // Stores original radiuses
+    let particleRadius = []
+    particles.forEach(p => {particleRadius.push(p.radius)});
+    
     function draw() {
         // Cleans Canvas
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -60,12 +72,37 @@ window.onload = function() {
             if (p.y + p.radius > canvasHeight || p.y - p.radius < 0) {
                 p.dy *= -1;
             }
+
+            // Scales radius if cursor is close
+            cursorCheck(p);
         });
     };
+
+    // Checks if cursor is nearby and scales radius accordingly
+    function cursorCheck(particle) {
+        // distance before grow
+        let threshold = 50
+
+        // Distance Formula to determine distance between cursor and particle
+        let distance = Math.sqrt(Math.pow((particle.x - coords.x), 2) + Math.pow((particle.y - coords.y), 2))
+        
+        // Scale particle radius if cursor is close enough
+        if (distance < threshold) {
+            particle.radius *= (1 + (1 -(distance / threshold)));
+        }
+    }
+
+    // restore original radiuses
+    function restore() {
+        for (let i = 0; i < 100; i++) {
+            particles[i].radius = particleRadius[i];
+        }
+    }
 
     function animate() {
         update();
         draw();
+        restore();
 
         requestAnimationFrame(animate);
     };
