@@ -1,0 +1,57 @@
+﻿/* Style Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'TASA Orbiter', sans-serif;
+    background-color: #f0e8bd;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 30px;
+}
+
+header h1, h2{
+    animation: fadeIn 5s;
+}
+
+h3 {
+    font-family: 'Comic Relief', 'Comic Sans MS', cursive;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    animation: rainbow 1s linear infinite alternate;
+}
+
+canvas {
+    border: 2px outset black;
+    box-sizing: content-box;
+    width: 80%;
+    margin: 0 10%;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rainbow {
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: green;}
+    75% {color: blue;}
+    100% {color: violet;}
+}
+    
